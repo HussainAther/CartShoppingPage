@@ -28,25 +28,7 @@ Install TypeScript as a development dependency by running the following command:
 npm install typescript --save-dev
 ```
 
-5. Configure TypeScript
-
-Create a `tsconfig.json` file in the project's root directory with the following contents:
-
-```
-{
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es2015", "dom"],
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true
-  },
-  "include": ["src"]
-}
-```
-
-6. Install and Configure Webpack
+5. Install and Configure Webpack
 
 Install Webpack and the necessary dependencies by running the following command:
 
@@ -54,7 +36,7 @@ Install Webpack and the necessary dependencies by running the following command:
 npm install webpack webpack-cli ts-loader --save-dev
 ```
 
-7. Install Dependencies
+6. Install Dependencies
 
 Install the project dependencies by running the following command:
 
@@ -62,7 +44,7 @@ Install the project dependencies by running the following command:
 npm install uuid @types/uuid --save
 ```
 
-8. Build and Run the Project
+7. Build and Run the Project
 
 To start the project, run the following command:
 
