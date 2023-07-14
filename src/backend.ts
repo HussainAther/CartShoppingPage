@@ -1,8 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-// import express from 'express';
-// import path from 'path';
-
-// const app = express();
 
 class Item {
   private _id: string;
@@ -74,6 +70,24 @@ class Item {
   }
 }
 
+function addToCart(event: Event): void {
+  event.preventDefault();
+
+  const itemInput = document.getElementById('item') as HTMLInputElement;
+  const quantityInput = document.getElementById('quantity') as HTMLInputElement;
+
+  const itemName = itemInput.value.trim();
+  const quantity = parseInt(quantityInput.value.trim(), 10);
+
+  if (itemName && !isNaN(quantity)) {
+    const item = new Item(itemName, 0, ''); // Replace 0 and '' with actual price and description
+    Shop.myUser?.addToCart(item, quantity);
+    Shop.updateCart();
+  } else {
+    console.log('Invalid item or quantity.');
+  }
+}
+
 class User {
   private _id: string;
   private _name: string;
@@ -110,16 +124,16 @@ class User {
   get cart(): { item: Item; quantity: number }[] {
     return this._cart;
   }
-
-  addToCart(item: Item): void {
+  addToCart(item: Item, quantity: number = 1): void {
     const existingItem = this._cart.find((cartItem) => cartItem.item.id === item.id);
     if (existingItem) {
-      existingItem.quantity += 1;
+      existingItem.quantity += quantity;
     } else {
-      const newItem = { item: item, quantity: 1 };
+      const newItem = { item: item, quantity: quantity };
       this._cart.push(newItem);
     }
   }
+  
 
   removeFromCart(item: Item): void {
     this._cart = this._cart.filter((cartItem) => cartItem.item.id !== item.id);
@@ -233,18 +247,18 @@ class Shop {
 
   showItems(): void {
     const shopDiv = document.getElementById('shop') as HTMLDivElement;
-    console.log(shopDiv);
-    // shopDiv.innerHTML = '';
-
+    shopDiv.innerHTML = ''; // Clear existing items before showing new ones
+  
     for (const item of this._items) {
       const itemElement = item.itemElement();
       shopDiv.appendChild(itemElement);
     }
   }
+  
 
   static updateCart(): void {
     const cartDiv = document.getElementById('cart') as HTMLDivElement;
-    // cartDiv.innerHTML = '';
+    cartDiv.innerHTML = '';
 
     if (!Shop.myUser || Shop.myUser.cart.length === 0) {
       const emptyCartElem = document.createElement('p');
@@ -256,42 +270,32 @@ class Shop {
       Shop.myUser.addRemoveEventListeners();
     }
   }
+}
 
-  static loginUser(event: Event): void {
-    event.preventDefault();
+const shop = new Shop(); // Instantiate the Shop class outside of loginUser
 
-    const nameInput = document.getElementById('name') as HTMLInputElement;
-    const ageInput = document.getElementById('age') as HTMLInputElement;
+function loginUser(event: Event): void {
+  event.preventDefault();
 
-    const name = nameInput.value.trim();
-    const age = parseInt(ageInput.value.trim(), 10);
+  const nameInput = document.getElementById('name') as HTMLInputElement;
+  const ageInput = document.getElementById('age') as HTMLInputElement;
 
-    if (name && !isNaN(age)) {
-      Shop.myUser = new User(name, age);
-      console.log(`Logged in as ${Shop.myUser.name}`);
-      console.log(`Age: ${Shop.myUser.age}`);
+  const name = nameInput.value.trim();
+  const age = parseInt(ageInput.value.trim(), 10);
 
-      const shop = new Shop();
-      shop.showItems();
-      Shop.updateCart();
-    } else {
-      console.log('Invalid login credentials.');
-    }
+  if (name && !isNaN(age)) {
+    Shop.myUser = new User(name, age);
+    console.log(`Logged in as ${Shop.myUser.name}`);
+    console.log(`Age: ${Shop.myUser.age}`);
+
+    shop.showItems(); // Use the existing shop instance to show items
+    Shop.updateCart(); // Use the updateCart function
+  } else {
+    console.log('Invalid login credentials.');
   }
 }
 
-// // Serve static files
-// app.use(express.static(path.resolve(__dirname, '../dist')));
+const cartForm = document.getElementById('cartForm') as HTMLFormElement;
+cartForm.addEventListener('submit', addToCart);
 
-// // Handle other routes
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '../dist/index.html'));
-// });
-
-// // Start the server
-// app.listen(3000, () => {
-//   console.log('Server is running on port 3000');
-// });
-
-export { Shop };
-
+export { Shop, User, loginUser };

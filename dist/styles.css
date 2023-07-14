@@ -75,7 +75,11 @@ button:hover {
   border: 1px solid #ddd;
 }
 
-#cart p {
+#cartForm {
+  margin-bottom: 1rem;
+}
+
+.cart p {
   margin: 0;
 }
 
