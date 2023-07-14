@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import express from 'express';
-import path from 'path';
+// import express from 'express';
+// import path from 'path';
 
-const app = express();
+// const app = express();
 
 class Item {
   private _id: string;
@@ -233,7 +233,8 @@ class Shop {
 
   showItems(): void {
     const shopDiv = document.getElementById('shop') as HTMLDivElement;
-    shopDiv.innerHTML = '';
+    console.log(shopDiv);
+    // shopDiv.innerHTML = '';
 
     for (const item of this._items) {
       const itemElement = item.itemElement();
@@ -243,7 +244,7 @@ class Shop {
 
   static updateCart(): void {
     const cartDiv = document.getElementById('cart') as HTMLDivElement;
-    cartDiv.innerHTML = '';
+    // cartDiv.innerHTML = '';
 
     if (!Shop.myUser || Shop.myUser.cart.length === 0) {
       const emptyCartElem = document.createElement('p');
@@ -279,18 +280,18 @@ class Shop {
   }
 }
 
-// Serve static files
-app.use(express.static(path.resolve(__dirname, '../dist')));
+// // Serve static files
+// app.use(express.static(path.resolve(__dirname, '../dist')));
 
-// Handle other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../dist/index.html'));
-});
+// // Handle other routes
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../dist/index.html'));
+// });
 
-// Start the server
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+// // Start the server
+// app.listen(3000, () => {
+//   console.log('Server is running on port 3000');
+// });
 
 export { Shop };
 
