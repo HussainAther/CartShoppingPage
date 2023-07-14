@@ -1,0 +1,19 @@
+{
+  "name": "oopcartshoppingpage",
+  "version": "1.0.0",
+  "description": "## Shop with Users OOP System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@types/uuid": "^9.0.2",
+    "uuid": "^9.0.0"
+  }
+}

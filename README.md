@@ -1,6 +1,6 @@
 # OOP Shopping Cart Webpage
 
-# Shop with Users OOP System
+## Shop with Users OOP System
 
 This is a TypeScript project that implements an Object-Oriented Programming (OOP) system for a shop with users who can buy items. It provides classes for Item, User, and Shop, along with various methods for managing the user's cart and performing cart operations.
 
@@ -15,7 +15,7 @@ Step 1: Initialize the Node.js Project
 
 Run the following command to initialize a new Node.js project:
 
-    ```bash
+    ```
     npm init -y
     ```
 
@@ -23,7 +23,7 @@ Step 2: Install TypeScript
 
 Install TypeScript as a development dependency by running the following command:
 
-    ```bash
+    ```
     npm install typescript --save-dev
     ```
 
@@ -33,25 +33,21 @@ Create a tsconfig.json file in the project's root directory with the following c
 ```
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "es5",
     "module": "commonjs",
+    "lib": ["es2015", "dom"],
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"]
 }
 ```
 
 Step 4: Install and Configure Webpack
 Install Webpack and the necessary dependencies by running the following command:
 
-    ```bash
+    ```
     npm install webpack webpack-cli ts-loader --save-dev
     ```
 
@@ -84,14 +80,14 @@ module.exports = {
 Step 5: Install Dependencies
 Install the project dependencies by running the following command:
 
-    ```bash
+    ```
     npm install uuid @types/uuid --save
     ```
 
 Step 6: Build and Run the Project
 To start the project, run the following command:
 
-    ```bash
+    ```
     npm start
     ```
  
