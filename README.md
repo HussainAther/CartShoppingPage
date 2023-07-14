@@ -46,7 +46,7 @@ Create a `tsconfig.json` file in the project's root directory with the following
 }
 ```
 
-Install and Configure Webpack
+6. Install and Configure Webpack
 
 Install Webpack and the necessary dependencies by running the following command:
 
@@ -54,33 +54,7 @@ Install Webpack and the necessary dependencies by running the following command:
 npm install webpack webpack-cli ts-loader --save-dev
 ```
 
-Create a webpack.config.js file in the project's root directory with the following contents:
-
-```
-const path = require('path');
-
-module.exports = {
-  entry: './src/frontend.ts',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  resolve: {
-    extensions: ['.ts', '.js']
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      }
-    ]
-  }
-};
-```
-
-Install Dependencies
+7. Install Dependencies
 
 Install the project dependencies by running the following command:
 
@@ -88,7 +62,7 @@ Install the project dependencies by running the following command:
 npm install uuid @types/uuid --save
 ```
 
-Build and Run the Project
+8. Build and Run the Project
 
 To start the project, run the following command:
 
