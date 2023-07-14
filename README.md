@@ -32,7 +32,7 @@ npm install typescript --save-dev
 
 Create a `tsconfig.json` file in the project's root directory with the following contents:
 
-```json
+```
 {
   "compilerOptions": {
     "target": "es5",
@@ -44,6 +44,8 @@ Create a `tsconfig.json` file in the project's root directory with the following
   },
   "include": ["src"]
 }
+```
+
 Install and Configure Webpack
 
 Install Webpack and the necessary dependencies by running the following command:
