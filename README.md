@@ -10,8 +10,7 @@ To set up and run the project locally, follow these steps:
 
 1. Clone the repository to your local machine or download the source code.
 2. Open a command prompt or terminal in the project's root directory.
-
-Step 1: Initialize the Node.js Project
+3. Initialize the Node.js Project
 
 Run the following command to initialize a new Node.js project:
 
@@ -19,7 +18,7 @@ Run the following command to initialize a new Node.js project:
     npm init -y
     ```
 
-Step 2: Install TypeScript
+4. Install TypeScript
 
 Install TypeScript as a development dependency by running the following command:
 
@@ -27,7 +26,7 @@ Install TypeScript as a development dependency by running the following command:
     npm install typescript --save-dev
     ```
 
-Step 3: Configure TypeScript
+5. Configure TypeScript
 Create a tsconfig.json file in the project's root directory with the following contents:
 
 ```
@@ -44,7 +43,7 @@ Create a tsconfig.json file in the project's root directory with the following c
 }
 ```
 
-Step 4: Install and Configure Webpack
+5. Install and Configure Webpack
 Install Webpack and the necessary dependencies by running the following command:
 
     ```
@@ -77,14 +76,14 @@ module.exports = {
 };
 ```
 
-Step 5: Install Dependencies
+6. Install Dependencies
 Install the project dependencies by running the following command:
 
     ```
     npm install uuid @types/uuid --save
     ```
 
-Step 6: Build and Run the Project
+7. Build and Run the Project
 To start the project, run the following command:
 
     ```
