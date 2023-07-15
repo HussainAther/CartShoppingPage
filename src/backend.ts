@@ -80,7 +80,7 @@ function addToCart(event: Event): void {
   const quantity = parseInt(quantityInput.value.trim(), 10);
 
   if (itemName && !isNaN(quantity)) {
-    const item = new Item(itemName, 0, ''); // Replace 0 and '' with actual price and description
+    const item = new Item(itemName, 0, ''); 
     Shop.myUser?.addToCart(item, quantity);
     Shop.updateCart();
   } else {
@@ -132,7 +132,7 @@ class User {
       const newItem = { item: item, quantity: quantity };
       this._cart.push(newItem);
     }
-  }
+  }  
   
 
   removeFromCart(item: Item): void {

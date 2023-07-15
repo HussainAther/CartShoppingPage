@@ -30,8 +30,19 @@ function addToCart(event: Event): void {
     const selectedItem = shop.items.find((shopItem) => shopItem.name === item);
 
     if (selectedItem) {
-      // Call the addToCart method on the user instance with the item and quantity
-      Shop.myUser?.addToCart(selectedItem, quantity);
+      // Check if the item already exists in the cart
+      const existingCartItem = Shop.myUser?.cart.find(
+        (cartItem) => cartItem.item.id === selectedItem.id
+      );
+
+      if (existingCartItem) {
+        // Update the quantity of the existing item in the cart
+        existingCartItem.quantity += quantity;
+      } else {
+        // Call the addToCart method on the user instance with the item and quantity
+        Shop.myUser?.addToCart(selectedItem, quantity);
+      }
+
       Shop.updateCart();
     } else {
       console.log('Item not found in the shop.');

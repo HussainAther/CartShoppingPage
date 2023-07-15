@@ -1,21 +1,13 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-}
-
-h1 {
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 #login {
-  margin: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   border: 1px solid #ddd;
 }
@@ -24,35 +16,12 @@ form {
   margin-bottom: 20px;
 }
 
-form div {
-  margin-bottom: 10px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="number"] {
-  width: 200px;
-  padding: 5px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #555;
+h2 {
+  margin-bottom: 20px;
 }
 
 #shop {
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .item-card {
@@ -61,7 +30,8 @@ button:hover {
   margin-bottom: 20px;
 }
 
-.item-card h3, .item-card p {
+.item-card h3,
+.item-card p {
   margin: 5px 0;
 }
 
@@ -70,17 +40,12 @@ button:hover {
 }
 
 #cart {
-  margin: 20px;
   padding: 20px;
   border: 1px solid #ddd;
 }
 
-#cartForm {
-  margin-bottom: 1rem;
-}
-
-.cart p {
-  margin: 0;
+#cartItems {
+  margin-top: 20px;
 }
 
 .cart-item {
@@ -101,3 +66,21 @@ button:hover {
   margin-top: 10px;
 }
 
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.carousel {
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+}

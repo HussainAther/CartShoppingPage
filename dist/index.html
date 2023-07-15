@@ -3,45 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop with Users</title>
+  <title>Wanderlust Boutique</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-  <header>
-    <h1>Shop with Users</h1>
+  <header class="d-flex justify-content-center">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <h1 class="display-4">Wanderlust Boutique</h1>
+      </a>
+    </nav>
   </header>
-  <div id="login">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <div> 
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-      </div>
-      <div>
-        <label for="age">Age:</label>
-        <input type="number" id="age" required>
-      </div>
-      <button type="login">Login</button>
-    </form>
-    <form id="cartForm">
-      <div>
-        <label for="item">Item:</label>
-        <input type="text" id="item" required>
-      </div>
-      <div>
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" required>
-      </div>
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
-  <div>
-    <div id="shop"></div>
+  <div class="container">
+    <div id="login">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" class="form-control" id="age" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      <form id="cartForm">
+        <div class="form-group">
+          <label for="item">Item:</label>
+          <input type="text" class="form-control" id="item" required>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="number" class="form-control" id="quantity" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+      </form>
     </div>
-  <div id="cart">
-    <h2>Cart</h2>
-    <div id="cartItems"></div>
-  </div>  
+    <div id="shop"></div>
+    <div id="cart">
+      <h2>Cart</h2>
+      <div id="cartItems"></div>
+    </div>
+  </div>
+  <section id="carouselSection">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/redhat.png" class="d-block w-100" alt="Red Hat">
+        </div>
+        <div class="carousel-item">
+          <img src="img/blueshirt.png" class="d-block w-100" alt="Blue Shirt">
+        </div>
+        <div class="carousel-item">
+          <img src="img/greenpants.png" class="d-block w-100" alt="Green Pants">
+        </div>
+        <div class="carousel-item">
+          <img src="img/blackshoes.jpeg" class="d-block w-100" alt="Black Shoes">
+        </div>
+        <div class="carousel-item">
+          <img src="img/yellowdress.png" class="d-block w-100" alt="Yellow Dress">
+        </div>
+        <div class="carousel-item">
+          <img src="img/whitesneakers.jpeg" class="d-block w-100" alt="White Sneakers">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>  
   <script src="bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
