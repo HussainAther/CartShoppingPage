@@ -1,4 +1,4 @@
-# OOP Shopping Cart Webpage
+# Wanderlust Boutique
 
 ## Shop with Users OOP System
 
