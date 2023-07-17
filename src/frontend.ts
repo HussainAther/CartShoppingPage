@@ -1,3 +1,5 @@
+declare var paypal: any;
+
 import { Shop, loginUser } from './backend';
 
 // Attach the loginUser method to the login form's submit event
@@ -55,3 +57,80 @@ function addToCart(event: Event): void {
   itemInput.value = '';
   quantityInput.value = '';
 }
+
+// Load the PayPal SDK asynchronously
+function loadPayPalSDK() {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://www.paypal.com/sdk/js?client-id=AcC-hp1ZzvYcEtMfFm3dW0VpOFqCK1puPW9sIJKMJpKPhgOV0sQ-XONrymST6zHHLc3bTZEPzmLqPQMh';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+
+  
+function createOrder() {
+// Logic to create the order and retrieve the order ID
+return fetch('/create-order', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+    totalAmount: '10.00' // Replace with the actual total amount of the order
+    })
+})
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+    return data.orderId;
+});
+}
+
+function onApprove(data: any) {
+    // Logic to handle the approved payment
+    return fetch('/capture-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        orderId: data.orderID
+      })
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        // Process the captured payment and finalize the order
+        console.log('Payment captured');
+        console.log(data);
+      });
+  }
+  
+function onError(err: any) {
+// Logic to handle any errors that occur during the payment process
+console.error('PayPal Error:', err);
+}
+
+// Create a function to initialize PayPal buttons
+function initializePayPalButtons() {
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color: 'blue',
+        shape: 'rect',
+        label: 'paypal'
+      },
+      createOrder: createOrder,
+      onApprove: onApprove,
+      onError: onError
+    }).render('#paypal-button-container');
+  }
+  
+// Load the PayPal SDK and then initialize the buttons
+loadPayPalSDK().then(() => {
+initializePayPalButtons();
+});
