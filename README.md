@@ -2,7 +2,7 @@
 
 ## Shop with Users OOP System
 
-This is a TypeScript project that implements an Object-Oriented Programming (OOP) system for a shop with users who can buy items. It provides classes for Item, User, and Shop, along with various methods for managing the user's cart and performing cart operations.
+This is a TypeScript project that implements an Object-Oriented Programming (OOP) system for a shop with users who can buy items. It provides classes for Item, User, and Shop, along with various methods for managing the user's cart and performing cart operations. The project is complete with Paypal functionality. Make sure to login first before adding items to the cart.
 
 ## Setup Instructions
 
